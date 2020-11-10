@@ -8,7 +8,7 @@
 
 """Command-Line Interface for BDC-Catalog."""
 
-from bdc_db.cli import cli
+from lccs_db.cli import cli
 
 
 def main(as_module=False):

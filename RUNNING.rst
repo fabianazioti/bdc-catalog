@@ -19,7 +19,7 @@ Creating database definition
         bdc-db db init
 
         SQLALCHEMY_DATABASE_URI="postgresql://postgres:password@localhost:5432/bdcdb" \
-        bdc-db db create-namespace
+        bdc-db db create-namespaces
 
         SQLALCHEMY_DATABASE_URI="postgresql://postgres:password@localhost:5432/bdcdb" \
         bdc-db db create-extension-postgis

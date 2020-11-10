@@ -15,6 +15,8 @@ from sqlalchemy import (TIMESTAMP, Boolean, Column, Enum, ForeignKey, Index,
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import relationship
 
+from lccs_db.models.luc_classification_system import LucClassificationSystem
+
 from .base_sql import BaseModel, db
 
 name_collection_type = 'collection_type'
@@ -37,6 +39,8 @@ class Collection(BaseModel):
         comment='Function schema identifier. Used for data cubes.')
     grid_ref_sys_id = Column(ForeignKey('grid_ref_sys.id', onupdate='CASCADE', ondelete='CASCADE'))
     collection_type = Column(enum_collection_type, nullable=False)
+    classification_system_id = Column(Integer, ForeignKey(LucClassificationSystem.id,
+                                                          onupdate='CASCADE'), nullable=False)
     _metadata = Column('metadata', JSONB, comment='Follow the JSONSchema @jsonschemas/collection-metadata.json')
     is_public = Column(Boolean(), nullable=False, default=True)
     start_date = Column(TIMESTAMP(timezone=True))

@@ -10,7 +10,7 @@
 
 from datetime import datetime
 
-from bdc_db.db import db
+from lccs_db.models import db
 from sqlalchemy import TIMESTAMP, Column, func
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.orm import Query

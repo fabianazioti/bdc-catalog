@@ -8,7 +8,7 @@
 
 """Image catalog extension for Brazil Data Cube applications and services."""
 
-from bdc_db.ext import BrazilDataCubeDB
+from lccs_db.ext import LCCSDatabase
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
@@ -47,7 +47,7 @@ class BDCCatalog:
         Args:
             app: Flask application
         """
-        self._db_ext = BrazilDataCubeDB(app)
+        self._db_ext = LCCSDatabase(app)
         app.extensions['bdc-catalog'] = self
 
         app.cli.add_command(cli)

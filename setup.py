@@ -79,10 +79,10 @@ setup(
     include_package_data=True,
     platforms='any',
     entry_points={
-        'bdc_db.alembic': [
+        'lccs_db.alembic': [
             'bdc_catalog = bdc_catalog:alembic'
         ],
-        'bdc_db.models': [
+        'lccs_db.models': [
             'bdc_catalog = bdc_catalog.models'
         ],
         'bdc_db.triggers': [
@@ -90,7 +90,10 @@ setup(
         ],
         'console_scripts': [
             'bdc-catalog = bdc_catalog.cli:cli'
-        ]
+        ],
+        'bdc_db.namespaces': [
+            'bdc-catalog = bdc_catalog.config:Config.BDC_ACTIVE_SCHEMA'
+        ],
     },
     extras_require=extras_require,
     install_requires=install_requires,
